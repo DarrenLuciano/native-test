@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-exception: true
+  servlet:
+    encoding:
+      charset: UTF-8
+spring:
+  application:
+    name: native-test
+  datasource:
+    driver-class-name: ${JDBC_DRIVER:com.mysql.cj.jdbc.Driver}
+    url: ${MYSQL_URI:jdbc:mysql://localhost:3306/test}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:123456}
+  jackson:
+    time-zone: Asia/Shanghai
+  jpa:
+    show-sql: ${SHOW_SQL:false}
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: true
+springdoc:
+  enable-native-support: true
